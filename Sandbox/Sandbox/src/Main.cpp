@@ -5,8 +5,6 @@ class Sandbox : public Cobble::Application
 public:
 	Sandbox(){}
 	~Sandbox(){}
-
-
 };
 
 Cobble::Application* Cobble::CreateApplication()

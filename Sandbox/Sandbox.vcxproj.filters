@@ -15,21 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cobble\src\Cobble\Core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cobble\src\Cobble\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cobble\src\Cobble.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Cobble\src\Cobble\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Cobble\src\Cobble\Application.cpp">
+    <ClCompile Include="Sandbox\src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -18,6 +18,9 @@ project "Cobblestone"
 	targetdir ("bin/" ..outputdir.. "/%{prj.name}")
 	objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
 
+	pchheader "cpch.h"
+	pchsource "Cobblestone/src/cpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",

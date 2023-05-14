@@ -1,1 +1,13 @@
-﻿  Cobblestone.vcxproj -> D:\011_Repos\Coblestone\V2\Cobblestone\bin\Release-windows-x86_64\Cobblestone\Cobblestone.dll
+﻿  Application.cpp
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\src\Cobble\Log.h(18,42): warning C4251: 'Cobble::Log::s_EngineLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cobble::Log'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\Vendor\spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\src\Cobble\Log.h(19,42): warning C4251: 'Cobble::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cobble::Log'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\Vendor\spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+  Log.cpp
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\src\Cobble\Log.h(18,42): warning C4251: 'Cobble::Log::s_EngineLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cobble::Log'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\Vendor\spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\src\Cobble\Log.h(19,42): warning C4251: 'Cobble::Log::s_ClientLogger': class 'std::shared_ptr<spdlog::logger>' needs to have dll-interface to be used by clients of class 'Cobble::Log'
+D:\011_Repos\Coblestone\V2\Cobblestone\Cobblestone\Vendor\spdlog\include\spdlog\details\registry.h(34,31): message : see declaration of 'std::shared_ptr<spdlog::logger>'
+  Generating Code...
+     Creating library ..\bin\Release-windows-x86_64\Cobblestone\Cobblestone.lib and object ..\bin\Release-windows-x86_64\Cobblestone\Cobblestone.exp
+  Cobblestone.vcxproj -> D:\011_Repos\Coblestone\V2\Cobblestone\bin\Release-windows-x86_64\Cobblestone\Cobblestone.dll

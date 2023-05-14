@@ -4,6 +4,9 @@
     <Filter Include="Cobble">
       <UniqueIdentifier>{2CB338AC-1855-6382-0110-77D6ED50EAD2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cobble\Events">
+      <UniqueIdentifier>{9095D72B-FC55-5362-C590-9CDF3110983E}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cobble.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Cobble\EntryPoint.h">
       <Filter>Cobble</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cobble\Events\ApplicationEvent.h">
+      <Filter>Cobble\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Events\Event.h">
+      <Filter>Cobble\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Events\KeyEvent.h">
+      <Filter>Cobble\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Events\MouseEvent.h">
+      <Filter>Cobble\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cobble\Log.h">
       <Filter>Cobble</Filter>
     </ClInclude>
+    <ClInclude Include="src\cpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cobble\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Cobble\Log.cpp">
       <Filter>Cobble</Filter>
     </ClCompile>
+    <ClCompile Include="src\cpch.cpp" />
   </ItemGroup>
 </Project>

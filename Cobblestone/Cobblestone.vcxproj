@@ -76,7 +76,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;CBB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;Vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -95,7 +96,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;CBB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;Vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -118,7 +120,8 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Distribution|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;CBB_DISTRIBUTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>src;Vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -144,11 +147,19 @@
     <ClInclude Include="src\Cobble\Application.h" />
     <ClInclude Include="src\Cobble\Core.h" />
     <ClInclude Include="src\Cobble\EntryPoint.h" />
-    <ClInclude Include="src\Cobble\Log.h" />
+    <ClInclude Include="src\Cobble\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Cobble\Events\Event.h" />
+    <ClInclude Include="src\Cobble\Events\KeyEvent.h" />
+    <ClInclude Include="src\Cobble\Events\MouseEvent.h" />
+    <ClInclude Include="src\Cobble\Logging\Log.h" />
+    <ClInclude Include="src\cpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cobble\Application.cpp" />
-    <ClCompile Include="src\Cobble\Log.cpp" />
+    <ClCompile Include="src\Cobble\Logging\Log.cpp" />
+    <ClCompile Include="src\cpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

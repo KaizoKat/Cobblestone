@@ -7,5 +7,7 @@
 		#define COBBLE_API __declspec(dllimport)
 	#endif // HZ_BUILD_DLL
 #else
-#error Cobble Supprots Windows only. Go buy an actual pc, or use a virtual machine.
+	#error Cobble Supprots Windows only. Go buy an actual pc, or use a virtual machine.
 #endif
+
+#define BIT(x) (1<<x)

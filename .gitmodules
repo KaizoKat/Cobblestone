@@ -1,0 +1,3 @@
+[submodule "Cobblestone/Cobble/Vendor/spdlog"]
+	path = Cobblestone/Cobble/Vendor/spdlog
+	url = https://github.com/gabime/spdlog

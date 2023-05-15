@@ -4,6 +4,7 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
+#include "Cobble/Log.h"
 
 #include <sstream>
 #include <string>

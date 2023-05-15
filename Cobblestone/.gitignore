@@ -1,9 +1,9 @@
 #directories
 
-.vs/
-bin-int/
-bin/
+.vs\
+bin-int\
+bin\
 
 #files
 
-*.user/
+*.user\

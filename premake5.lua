@@ -1,39 +1,51 @@
 workspace "Cobblestone"
 	architecture "x64"
-	
 	configurations
 	{
 		"Debug",
 		"Release",
-		"Distribution"
+		"Distrib"
 	}
-
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+
+IncludeDir = {}
+IncludeDir["GLFW"] = "Cobblestone/external/GLFW/include"
+
+include "Cobblestone/external/GLFW"
 
 project "Cobblestone"
 	location "Cobblestone"
 	kind "SharedLib"
 	language "C++"
 
-	targetdir ("bin/" ..outputdir.. "/%{prj.name}")
-	objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	pchheader "cpch.h"
-	pchsource "Cobblestone/src/cpch.cpp"
+	pchsource "%{prj.name}/src/cpch.cpp"
 
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/src/**.cpp"
 	}
 
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/Vendor/spdlog/include"
+		"%{prj.name}/external/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links 
+	{ 
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -44,19 +56,23 @@ project "Cobblestone"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" ..outputdir.. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
 		}
+
 
 	filter "configurations:Debug"
 		defines "CBB_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "CBB_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
-	filter "configurations:Distribution"
-		defines "CBB_DISTRIBUTION"
+	filter "configurations:Distrib"
+		defines "CBB_DISTRIB"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -64,8 +80,8 @@ project "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
 
-	targetdir ("bin/" ..outputdir.. "/%{prj.name}")
-	objdir ("bin-int/" ..outputdir.. "/%{prj.name}")
+	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
+	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
 	files
 	{
@@ -75,7 +91,7 @@ project "Sandbox"
 
 	includedirs
 	{
-		"Cobblestone/Vendor/spdlog/include",
+		"Cobblestone/external/spdlog/include",
 		"Cobblestone/src"
 	}
 
@@ -85,6 +101,8 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
+		cppdialect "C++17"
+		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -93,16 +111,16 @@ project "Sandbox"
 		}
 
 	filter "configurations:Debug"
-		defines "HZ_DEBUG"
-		runtime "Debug"
-		symbols "on"
+		defines "CBB_DEBUG"
+		buildoptions "/MDd"
+		symbols "On"
 
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
-		runtime "Release"
-		optimize "on"
+		defines "CBB_RELEASE"
+		buildoptions "/MD"
+		optimize "On"
 
-	filter "configurations:Distribution"
-		defines "HZ_DISTRIBUTION"
-		runtime "Release"
-		optimize "on"
+	filter "configurations:Distrib"
+		defines "CBB_DISTRIB"
+		buildoptions "/MD"
+		optimize "On"

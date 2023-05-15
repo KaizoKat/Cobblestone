@@ -1,0 +1,10 @@
+#directories
+
+.vs/
+bin-int/
+bin/
+
+#files
+
+*.user/
+Cobblestone/external

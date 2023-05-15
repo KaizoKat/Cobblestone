@@ -25,9 +25,9 @@ namespace Cobble
 
 	class COBBLE_API Event
 	{
-		friend class EventDispatcher;
-
 	public:
+		bool Handled = false;
+
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
 		virtual int GetCategoryFlags() const = 0;
@@ -37,8 +37,6 @@ namespace Cobble
 		{
 			return GetCategoryFlags() & (int)category;
 		}
-	protected:
-		bool m_handler = false;
 	};
 
 	class EventDispatcher
@@ -54,7 +52,7 @@ namespace Cobble
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.m_handler = func(*(T*)&m_Event);
+				m_Event.Handled = func(*(T*)&m_Event);
 				return false;
 			}
 			return false;

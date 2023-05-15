@@ -25,8 +25,7 @@ namespace Cobble
 		virtual const char* GetName()    const override { return "Mouse Move"; }
 
 
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; }
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Input; }
+		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; + (int)EventCategory::EC_Input;}
 
 	private:
 		float m_MouseX;
@@ -54,8 +53,7 @@ namespace Cobble
 		virtual const char* GetName()    const override { return "Mouse Scroll"; }
 
 
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; }
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Input; }
+		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; +(int)EventCategory::EC_Input; }
 
 	private:
 		float m_OffsetX;
@@ -67,8 +65,7 @@ namespace Cobble
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; }
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Input; }
+		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; +(int)EventCategory::EC_Input; }
 	protected:
 		MouseButtonEvent(int button)
 			: m_Button(button) {}

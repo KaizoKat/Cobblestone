@@ -1,3 +1,6 @@
 [submodule "Cobblestone/Cobble/Vendor/spdlog"]
 	path = Cobblestone/Cobble/Vendor/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "Cobblestone/external/GLFW"]
+	path = Cobblestone/external/GLFW
+	url = https://github.com/glfw/glfw

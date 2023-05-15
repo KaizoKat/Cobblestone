@@ -9,8 +9,7 @@ namespace Cobble
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
 
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Keyboard; }
-		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Input; }
+		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Keyboard + (int)EventCategory::EC_Input;}
 	protected:
 		KeyEvent(int keycode)
 			: m_KeyCode(keycode) {}

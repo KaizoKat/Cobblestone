@@ -30,15 +30,13 @@ namespace Debug
 }
 //engine macros
 #define EngineDebug_Trace(...)	 ::Cobble::Log::GetEngineLogger()->trace(__VA_ARGS__)
-#define EngineDebug_Log(...)	     ::Cobble::Log::GetEngineLogger()->info(__VA_ARGS__)
+#define EngineDebug_Log(...)	 ::Cobble::Log::GetEngineLogger()->info(__VA_ARGS__)
 #define EngineDebug_Warn(...)	 ::Cobble::Log::GetEngineLogger()->warn(__VA_ARGS__)
 #define EngineDebug_Error(...)   ::Cobble::Log::GetEngineLogger()->error(__VA_ARGS__)
-#define EngineDebug_Fatal(...)   ::Cobble::Log::GetEngineLogger()->fatal(__VA_ARGS__)
 
 #define Debug_Trace(...)	::Cobble::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define Debug_Log(...)	        ::Cobble::Log::GetClientLogger()->info(__VA_ARGS__)
+#define Debug_Log(...)	    ::Cobble::Log::GetClientLogger()->info(__VA_ARGS__)
 #define Debug_Warn(...)	    ::Cobble::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define Debug_Error(...)    ::Cobble::Log::GetClientLogger()->error(__VA_ARGS__)
-#define Debug_Fatal(...)    ::Cobble::Log::GetClientLogger()->fatal(__VA_ARGS__)
 
 

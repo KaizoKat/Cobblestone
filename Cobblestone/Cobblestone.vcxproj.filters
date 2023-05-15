@@ -7,6 +7,12 @@
     <Filter Include="Cobble\Events">
       <UniqueIdentifier>{9095D72B-FC55-5362-C590-9CDF3110983E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform">
+      <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\Windows">
+      <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cobble.h" />
@@ -31,18 +37,35 @@
     <ClInclude Include="src\Cobble\Events\MouseEvent.h">
       <Filter>Cobble\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cobble\LayerStack.h">
+      <Filter>Cobble</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cobble\Log.h">
       <Filter>Cobble</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cobble\Window.h">
+      <Filter>Cobble</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="src\cpch.h" />
+    <ClInclude Include="src\Cobble\Layer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cobble\Application.cpp">
+    <ClCompile Include="src\Cobble\Layer.cpp">
+      <Filter>Cobble</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cobble\LayerStack.cpp">
       <Filter>Cobble</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\Log.cpp">
       <Filter>Cobble</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Platform\Windows</Filter>
+    </ClCompile>
     <ClCompile Include="src\cpch.cpp" />
+    <ClCompile Include="src\Cobble\Application.cpp" />
   </ItemGroup>
 </Project>

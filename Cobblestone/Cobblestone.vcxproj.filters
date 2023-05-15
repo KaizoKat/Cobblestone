@@ -37,6 +37,9 @@
     <ClInclude Include="src\Cobble\Events\MouseEvent.h">
       <Filter>Cobble\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cobble\Layer.h">
+      <Filter>Cobble</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cobble\LayerStack.h">
       <Filter>Cobble</Filter>
     </ClInclude>
@@ -50,9 +53,11 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\cpch.h" />
-    <ClInclude Include="src\Cobble\Layer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Cobble\Application.cpp">
+      <Filter>Cobble</Filter>
+    </ClCompile>
     <ClCompile Include="src\Cobble\Layer.cpp">
       <Filter>Cobble</Filter>
     </ClCompile>
@@ -66,6 +71,5 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\cpch.cpp" />
-    <ClCompile Include="src\Cobble\Application.cpp" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
-
 #include "cpch.h"
 #include "WindowsWindow.h"
+
 #include "Cobble/Events/ApplicationEvent.h"
 #include "Cobble/Events/KeyEvent.h"
 #include "Cobble/Events/MouseEvent.h"
@@ -50,6 +50,11 @@ namespace Cobble {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+
+		CBB_CORE_ASSERT(status, "Failed to initialize glad.");
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

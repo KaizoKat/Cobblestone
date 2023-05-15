@@ -1,21 +1,26 @@
 #include <Cobble.h>
 
-class ExampleLayer : public Cobble::Layer
+class Layer0 : public Cobble::Layer
 {
+private:
+	int counter;
 public:
-	ExampleLayer()
-		: Layer("Example")
+	//start of the layer's loop (called once)
+	Layer0()
+		: Layer("Example"), counter(0)
 	{
+
 	}
 
+	//called every frame (multiple times.)
 	void OnUpdate() override
 	{
-		Debug_Log("ExampleLayer::Update");
+
 	}
 
 	void OnEvent(Cobble::Event& event) override
 	{
-		Debug_Trace("{0}", event);
+
 	}
 };
 
@@ -27,7 +32,7 @@ public:
 	 Sandbox()
 	 {
 		 Debug_Trace("Sandbox Opened Succesfuly");
-		 PushLayer(new ExampleLayer());
+		 PushLayer(new Layer0());
 	 }
 	~Sandbox(){}
 };

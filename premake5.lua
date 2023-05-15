@@ -10,8 +10,10 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Cobblestone/external/GLFW/include"
+IncludeDir["glad"] = "Cobblestone/external/glad/include"
 
 include "Cobblestone/external/GLFW"
+include "Cobblestone/external/glad"
 
 project "Cobblestone"
 	location "Cobblestone"
@@ -34,12 +36,14 @@ project "Cobblestone"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/external/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.glad}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"glad",
 		"opengl32.lib"
 	}
 
@@ -51,7 +55,8 @@ project "Cobblestone"
 		defines
 		{
 			"CBB_PLATFORM_WINDOWS",
-			"CBB_BUILD_DLL"
+			"CBB_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands

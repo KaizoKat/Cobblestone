@@ -144,6 +144,10 @@
       <Project>{5513A609-C1C8-1EFF-4ABD-18D6B6711503}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\LayerChannel.h" />
+    <ClInclude Include="src\LayerStack.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -4,6 +4,8 @@
 #include "GLFW\glfw3.h"
 
 #include "Cobble\Main\Application.h"
+#include "Cobble\Main\Input.h"
+
 #include "Platform\OpenGL\i_ImGuiGlfw.h"
 #include "Platform\OpenGL\i_imGuiOpenGL3.h"
 #include "Platform\Windows\WindowsWindow.h"
@@ -12,7 +14,7 @@ struct GLFWwindow;
 
 namespace Cobble
 {
-	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer") {}
+	ImGuiLayer::ImGuiLayer() : Layer("ImGuiLayer"), b_Info(false) {}
 
 	ImGuiLayer::~ImGuiLayer()  {}
 
@@ -59,17 +61,23 @@ namespace Cobble
 	{
 
 	}
-	void ImGuiLayer::OnEvent(Cobble::Event& e) 
-    {
 
-    }
+	void ImGuiLayer::OnEvent(Cobble::Event& e)
+	{
+	}
 
 	void ImGuiLayer::ShowDebugWindow()
 	{
-		static bool b_Debug = false;
 		static bool b_MFTB = true;
+		static bool b_Debug = false;
+
 		static float bgColor[4] = { 102.0f / 255.0f,124.0f / 255.0f,154.0f / 255.0f,1 };
+		static int wait = 0;
+		static int prevFPSV;
 		static int itt;
+		static double oldTime = 0.0;
+		__int64 counter;
+		__int64 frequency;
 
 		Application& app = Application::Get();
 		ImGuiIO& io = ImGui::GetIO();
@@ -79,7 +87,17 @@ namespace Cobble
 		app.m_BGColor.z = bgColor[2];
 		app.m_BGColor.w = bgColor[3];
 
-		ImGui::SetNextWindowSize(ImVec2(220.0f,512.0f),ImGuiCond_Appearing);
+		QueryPerformanceCounter((LARGE_INTEGER*)&counter);
+		QueryPerformanceFrequency((LARGE_INTEGER*)&frequency);
+
+		double newTime = (double)counter / (double)frequency;
+		double frameRate = 1 / (newTime - oldTime);
+		oldTime = newTime;
+
+		if (wait > 60) wait = 0;
+		else wait++;
+
+		ImGui::SetNextWindowSize(ImVec2(220.0f,360.0f),ImGuiCond_Appearing);
 		ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f), ImGuiCond_Appearing, ImVec2(0.0f, 0.0f));
 
 		ImGui::Begin("Main Menu");// Main Menu ------------------------------------------------------
@@ -92,11 +110,16 @@ namespace Cobble
 			b_Debug = !b_Debug;
 		}
 
+		if (ImGui::Button("Open Info Menu"))
+		{
+			b_Info = !b_Info;
+		}
+
 		ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		if (b_Debug)
 		{
-			ImGui::SetNextWindowSize(ImVec2(480.0f, 512.0f), ImGuiCond_Appearing);
+			ImGui::SetNextWindowSize(ImVec2(480.0f, 360.0f), ImGuiCond_Appearing);
 			ImGui::SetNextWindowPos(ImVec2(220.0f, 0.0f), ImGuiCond_Appearing, ImVec2(0.0f, 0.0f));
 
 			ImGui::Begin("Debug Pannel", &b_Debug);// Debug Pannel -----------------------------------
@@ -121,6 +144,29 @@ namespace Cobble
 				ImGui::StyleColorsLight();
 				break;
 			}
+
+			ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		}
+
+		if (b_Info)
+		{
+			ImGui::SetNextWindowSize(ImVec2(220.0f, 200.0f), ImGuiCond_Appearing);
+			ImGui::SetNextWindowPos(ImVec2(0.0f, 360.0f), ImGuiCond_Appearing, ImVec2(0.0f, 0.0f));
+
+			ImGui::Begin("Info Pannel", &b_Info);// Info Pannel -----------------------------------
+
+			std::stringstream framerate;
+			if (wait == 0) prevFPSV = (int)frameRate;
+			framerate << "Frame Rate: " << prevFPSV;
+			ImGui::Text(framerate.str().c_str());
+
+			std::stringstream mousePos;
+			mousePos << "Mouse Pos: " << Input::GetMouseX() << ", " << Input::GetMouseY();
+			ImGui::Text(mousePos.str().c_str());
+
+			std::stringstream lastKey;
+			lastKey << "Last Key: " << ;
+			ImGui::Text(mousePos.str().c_str());
 
 			ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		}

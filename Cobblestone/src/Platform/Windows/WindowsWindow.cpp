@@ -57,7 +57,7 @@ namespace Cobble {
 		CBB_CORE_ASSERT(status, "Failed to initialize glad.");
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
+		SetVSync(false);
 		//set GLFW callback
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 			{

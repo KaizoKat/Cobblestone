@@ -9,3 +9,8 @@
 #include "Cobble\Main\LayerStack.h"
 #include "Cobble\imGuiLayer\imGuiLayer.h"
 
+#include "Cobble\Main\Input.h"
+#include "Cobble\Main\KeyCodes.h"
+#include "Cobble\Main\MouseButtonCodes.h"
+#include "Cobble\Main\GamepadKeycodes.h"
+

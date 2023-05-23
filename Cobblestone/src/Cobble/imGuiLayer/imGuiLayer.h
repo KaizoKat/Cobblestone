@@ -2,6 +2,7 @@
 
 #include "Cobble\Main\Layer.h"
 #include "Cobble\Events\KeyEvent.h"
+#include "Cobble\Events\MouseEvent.h"
 
 namespace Cobble
 {
@@ -20,5 +21,6 @@ namespace Cobble
 		void ShowDebugWindow();
 	private:
 		float m_Time = 0.0f;
+		bool b_Info;
 	};
 }

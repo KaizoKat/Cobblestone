@@ -77,6 +77,9 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\cpch.h" />
+    <ClInclude Include="src\Cobble\Main\KeyCodes.h" />
+    <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h" />
+    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cobble\Main\Application.cpp">

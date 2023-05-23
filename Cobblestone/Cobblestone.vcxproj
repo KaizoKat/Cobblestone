@@ -161,12 +161,15 @@
     <ClInclude Include="src\Cobble\Events\KeyEvent.h" />
     <ClInclude Include="src\Cobble\Events\MouseEvent.h" />
     <ClInclude Include="src\Cobble\Main\Application.h" />
+    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h" />
     <ClInclude Include="src\Cobble\Main\Core.h" />
     <ClInclude Include="src\Cobble\Main\EntryPoint.h" />
     <ClInclude Include="src\Cobble\Main\Input.h" />
+    <ClInclude Include="src\Cobble\Main\KeyCodes.h" />
     <ClInclude Include="src\Cobble\Main\Layer.h" />
     <ClInclude Include="src\Cobble\Main\LayerStack.h" />
     <ClInclude Include="src\Cobble\Main\Log.h" />
+    <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h" />
     <ClInclude Include="src\Cobble\Main\Window.h" />
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h" />
     <ClInclude Include="src\Platform\OpenGL\i_ImGuiGlfw.h" />

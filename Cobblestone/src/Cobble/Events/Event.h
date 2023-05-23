@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Cobble/Core.h"
+#include "Cobble\Main\Core.h"
 
 namespace Cobble
 {
@@ -10,7 +10,7 @@ namespace Cobble
 		WindowClose, WindowResize, WindowFocus, WindowLostFocus, WindowMoved,
 		ApkTick, ApkUpdate, ApkRender,
 		KeyPress, KeyRelease,
-		MousePress, MouseRelease, MouseMove, MouseScroll
+		MousePress, MouseRelease, MouseMove, MouseScroll, Fin
 	};
 
 	enum class EventCategory
@@ -39,7 +39,7 @@ namespace Cobble
 		}
 	};
 
-	class EventDispatcher
+	class COBBLE_API EventDispatcher
 	{
 		template<typename T>
 		using EventFn = std::function<bool(T&)>;

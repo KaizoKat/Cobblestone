@@ -4,6 +4,7 @@
 #include "Cobble/Events/ApplicationEvent.h"
 #include "Cobble/Events/KeyEvent.h"
 #include "Cobble/Events/MouseEvent.h"
+#include "Platform\OpenGL\i_ImGuiGlfw.h"
 
 namespace Cobble {
 
@@ -35,7 +36,7 @@ namespace Cobble {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
-		EngineDebug_Log("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
+		EngineDebug_Info("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized)
 		{
@@ -57,7 +58,6 @@ namespace Cobble {
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
-
 		//set GLFW callback
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 			{
@@ -67,15 +67,29 @@ namespace Cobble {
 
 				WindowResizeEvent event(width, height);
 				data.EventCallback(event);
-
 			});
 
-		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) 
+		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
 			{
 				WindowData& data = *(WindowData*)(glfwGetWindowUserPointer(window));
 				WindowCloseEvent event;
 
 				data.EventCallback(event);
+			});
+
+		glfwSetWindowFocusCallback(m_Window, [](GLFWwindow* window, int focus) 
+			{
+				ImGui_ImplGlfw_WindowFocusCallback(window, focus);
+			});
+
+		glfwSetCursorEnterCallback(m_Window, [](GLFWwindow* window, int enter)
+			{
+				ImGui_ImplGlfw_CursorEnterCallback(window, enter);
+			});
+
+		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int c)
+			{
+				ImGui_ImplGlfw_CharCallback(window, c);
 			});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -85,25 +99,27 @@ namespace Cobble {
 				{
 					case GLFW_PRESS:
 					{
-						KeyPressedEvent event(key, 0);
+						KeyPressedEvent event(window,key,scancode,action,mods, 0);
 						data.EventCallback(event);
 						break;
 					}
 
 					case GLFW_RELEASE:
 					{
-						KeyReleasedEvent event(key);
+						KeyReleasedEvent event(window, key, scancode, action, mods);
 						data.EventCallback(event);
 						break;
 					}
 
 					case GLFW_REPEAT:
 					{
-						KeyPressedEvent event(key, 1);
+						KeyPressedEvent event(window, key, scancode, action, mods, 1);
 						data.EventCallback(event);
 						break;
 					}
 				}
+
+				ImGui_ImplGlfw_KeyCallback(window, key, scancode, action, mods);
 			});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) 
@@ -126,14 +142,18 @@ namespace Cobble {
 						break;
 					}
 				}
+
+				ImGui_ImplGlfw_MouseButtonCallback(window, button, action, mods);
 			});
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
 			{
-				WindowData& data = *(WindowData*)(glfwGetWindowUserPointer(window));
+				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				MouseScrollEvent event((float)xOffset, (float) yOffset);
+				MouseScrollEvent event((float)xOffset, (float)yOffset);
 				data.EventCallback(event);
+
+				ImGui_ImplGlfw_ScrollCallback(window, xOffset, yOffset);
 			});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
@@ -142,6 +162,8 @@ namespace Cobble {
 
 				MouseMovedEvent event((float)xPos, (float)yPos);
 				data.EventCallback(event);
+
+				ImGui_ImplGlfw_CursorPosCallback(window, xPos, yPos);
 			});
 	}
 

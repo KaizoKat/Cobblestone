@@ -18,12 +18,12 @@
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\DefaultScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\LayerStack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\LayerChannel.h">
+    <ClInclude Include="src\DefaultScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

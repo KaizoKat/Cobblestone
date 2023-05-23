@@ -11,9 +11,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Cobblestone/external/GLFW/include"
 IncludeDir["glad"] = "Cobblestone/external/glad/include"
+IncludeDir["imGui"] = "Cobblestone/external/imGui"
 
 include "Cobblestone/external/GLFW"
 include "Cobblestone/external/glad"
+include "Cobblestone/external/imGui"
 
 project "Cobblestone"
 	location "Cobblestone"
@@ -37,6 +39,7 @@ project "Cobblestone"
 		"%{prj.name}/src",
 		"%{prj.name}/external/spdlog/include",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.imGui}",
 		"%{IncludeDir.glad}"
 	}
 
@@ -44,6 +47,7 @@ project "Cobblestone"
 	{ 
 		"GLFW",
 		"glad",
+		"imGui",
 		"opengl32.lib"
 	}
 

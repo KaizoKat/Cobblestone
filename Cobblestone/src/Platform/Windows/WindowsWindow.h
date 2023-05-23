@@ -1,6 +1,7 @@
 
 
-#include "Cobble/Window.h"
+#include "Cobble\Main\Window.h"
+
 #include <GLFW/glfw3.h>
 #include <glad/glad.h>
 
@@ -21,6 +22,8 @@ namespace Cobble {
 		inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 		void SetVSync(bool enabled) override;
 		bool IsVSync() const override;
+
+		inline virtual void* GetNativeWindow() const { return m_Window; }
 	private:
 		virtual void Init(const WindowProps& props);
 		virtual void Shutdown();
@@ -30,13 +33,14 @@ namespace Cobble {
 		struct WindowData
 		{
 			std::string Title;
-			unsigned int Width, Height;
+			unsigned int Width, Height, Focus;
 			bool VSync;
 
 			EventCallbackFn EventCallback;
 		};
 
 		WindowData m_Data;
+		bool m_InstalledImGuiGlfw = false;
 	};
 
 }

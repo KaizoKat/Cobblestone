@@ -1,15 +1,17 @@
 
-#include <Cobble.h>
-#include "LayerStack.h"
 
+#include "Cobble.h"
+#include "Cobble\Main\EntryPoint.h"
+#include "DefaultScene.h"
 
 class Sandbox : public Cobble::Application
 {
 public:
 	 Sandbox()
 	 {
-		 Debug_Trace("Sandbox Opened Succesfuly");
-		 #include "LayerChannel.h"
+		 Debug_Info("Sandbox Opened Succesfuly");
+		 PushOverlay(new Cobble::ImGuiLayer());
+		 PushLayer(new DefaultScene());
 	 }
 	~Sandbox(){}
 };

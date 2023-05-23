@@ -7,8 +7,17 @@
     <Filter Include="Cobble\Events">
       <UniqueIdentifier>{9095D72B-FC55-5362-C590-9CDF3110983E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cobble\Utils">
+      <UniqueIdentifier>{8C659B9D-78C8-2A42-214E-63F80D90F6C4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cobble\imGuiLayer">
+      <UniqueIdentifier>{73CAD199-DFE0-CF2F-2858-5B5194ADA0B7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
@@ -16,15 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Cobble.h" />
-    <ClInclude Include="src\Cobble\Application.h">
-      <Filter>Cobble</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cobble\Core.h">
-      <Filter>Cobble</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Cobble\EntryPoint.h">
-      <Filter>Cobble</Filter>
-    </ClInclude>
     <ClInclude Include="src\Cobble\Events\ApplicationEvent.h">
       <Filter>Cobble\Events</Filter>
     </ClInclude>
@@ -37,17 +37,41 @@
     <ClInclude Include="src\Cobble\Events\MouseEvent.h">
       <Filter>Cobble\Events</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cobble\Layer.h">
-      <Filter>Cobble</Filter>
+    <ClInclude Include="src\Cobble\Main\Application.h">
+      <Filter>Cobble\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cobble\LayerStack.h">
-      <Filter>Cobble</Filter>
+    <ClInclude Include="src\Cobble\Main\Core.h">
+      <Filter>Cobble\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cobble\Log.h">
-      <Filter>Cobble</Filter>
+    <ClInclude Include="src\Cobble\Main\EntryPoint.h">
+      <Filter>Cobble\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\Cobble\Window.h">
-      <Filter>Cobble</Filter>
+    <ClInclude Include="src\Cobble\Main\Input.h">
+      <Filter>Cobble\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\Layer.h">
+      <Filter>Cobble\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\LayerStack.h">
+      <Filter>Cobble\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\Log.h">
+      <Filter>Cobble\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\Window.h">
+      <Filter>Cobble\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h">
+      <Filter>Cobble\imGuiLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\i_ImGuiGlfw.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\i_imGuiOpenGL3.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
@@ -55,17 +79,29 @@
     <ClInclude Include="src\cpch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Cobble\Application.cpp">
-      <Filter>Cobble</Filter>
+    <ClCompile Include="src\Cobble\Main\Application.cpp">
+      <Filter>Cobble\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cobble\Layer.cpp">
-      <Filter>Cobble</Filter>
+    <ClCompile Include="src\Cobble\Main\Layer.cpp">
+      <Filter>Cobble\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cobble\LayerStack.cpp">
-      <Filter>Cobble</Filter>
+    <ClCompile Include="src\Cobble\Main\LayerStack.cpp">
+      <Filter>Cobble\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="src\Cobble\Log.cpp">
-      <Filter>Cobble</Filter>
+    <ClCompile Include="src\Cobble\Main\Log.cpp">
+      <Filter>Cobble\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp">
+      <Filter>Cobble\imGuiLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\i_ImGuiGlfw.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\i_imGuiOpenGL3.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>

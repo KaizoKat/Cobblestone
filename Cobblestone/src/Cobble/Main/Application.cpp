@@ -1,18 +1,22 @@
 #include "cpch.h"
 #include "Application.h"
-#include "Events/Event.h"
 #include "Log.h"
+#include "Input.h"
 
 #include <glad/glad.h>
+#include <imgui.h>
 
 namespace Cobble
 {
-	#define BEF(x) std::bind(&Application::x, this, std::placeholders::_1)
+	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
 	{
+		CBB_CORE_ASSERT(!s_Instance, "Application allready exists.");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
-		m_Window->SetEventCallback(BEF(OnEvent));
+		m_Window->SetEventCallback(BindFunction(OnEvent));
 	}
 
 	Application::~Application()
@@ -23,7 +27,7 @@ namespace Cobble
 	{
 		//EngineDebug_Trace("{0}", e);
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BEF(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(BindFunction(OnWindowClose));
 
 		for (auto it = m_Stack.end(); it != m_Stack.begin();)
 		{
@@ -36,11 +40,13 @@ namespace Cobble
 	void Application::PushLayer(Layer* layer)
 	{
 		m_Stack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_Stack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
@@ -53,7 +59,7 @@ namespace Cobble
 	{
 		while (m_Running)
 		{
-			glClearColor(108.0f / 255.0f, 135.0f / 255.0f, 155.0f / 255.0f, 1.0f);
+			glClearColor(m_BGColor.x,m_BGColor.y,m_BGColor.z,m_BGColor.w);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_Stack)

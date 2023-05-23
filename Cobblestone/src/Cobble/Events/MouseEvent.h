@@ -35,16 +35,16 @@ namespace Cobble
 	class COBBLE_API MouseScrollEvent : public Event
 	{
 	public:
-		MouseScrollEvent(float xOffset, float yOffset)
-			: m_OffsetX(xOffset), m_OffsetY(xOffset) {}
+		MouseScrollEvent(float x, float y)
+			: m_MouseX(x), m_MouseY(y) {}
 
-		inline float GetOffsetX() const { return m_OffsetX; }
-		inline float GetOffsetY() const { return m_OffsetY; }
+		inline float GetX() const { return m_MouseX; }
+		inline float GetY() const { return m_MouseY; }
 
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "MouseMovedEvet: " << GetOffsetX() << ", " << GetOffsetY();
+			ss << "MouseMovedEvet: " << GetX() << ", " << GetY();
 			return ss.str();
 		}
 
@@ -56,8 +56,8 @@ namespace Cobble
 		virtual int GetCategoryFlags() const override { return (int)EventCategory::EC_Mouse; +(int)EventCategory::EC_Input; }
 
 	private:
-		float m_OffsetX;
-		float m_OffsetY;
+		float m_MouseX;
+		float m_MouseY;
 	};
 
 	class COBBLE_API MouseButtonEvent : public Event

@@ -2,6 +2,8 @@
 
 #include "Event.h"
 
+struct GLFWwindow;
+
 namespace Cobble
 {
 	class COBBLE_API WindowResizeEvent : public Event
@@ -36,6 +38,7 @@ namespace Cobble
 	{
 	public:
 		WindowCloseEvent() {}
+
 
 
 		static EventType GetStaticType() { return EventType::WindowClose; }

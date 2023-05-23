@@ -7,9 +7,4 @@ namespace Cobble
 		:m_DebugName(debugName)
 	{
 	}
-
-	Layer::~Layer()
-	{
-
-	}
 }

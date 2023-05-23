@@ -21,22 +21,17 @@ namespace Cobble
 	};
 }
 
-namespace Debug
-{
-	namespace Engine
-	{
-
-	}
-}
+// both macros can be called from anywhere and currently, there is no diffrence in the two of 
+// them.
 //engine macros
-#define EngineDebug_Trace(...)	 ::Cobble::Log::GetEngineLogger()->trace(__VA_ARGS__)
-#define EngineDebug_Log(...)	 ::Cobble::Log::GetEngineLogger()->info(__VA_ARGS__)
+
+#define EngineDebug_Log(...)	 ::Cobble::Log::GetEngineLogger()->trace(__VA_ARGS__)
+#define EngineDebug_Info(...)	 ::Cobble::Log::GetEngineLogger()->info(__VA_ARGS__)
 #define EngineDebug_Warn(...)	 ::Cobble::Log::GetEngineLogger()->warn(__VA_ARGS__)
 #define EngineDebug_Error(...)   ::Cobble::Log::GetEngineLogger()->error(__VA_ARGS__)
 
-#define Debug_Trace(...)	::Cobble::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define Debug_Log(...)	    ::Cobble::Log::GetClientLogger()->info(__VA_ARGS__)
+//client macros
+#define Debug_Log(...)	    ::Cobble::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define Debug_Info(...)	    ::Cobble::Log::GetClientLogger()->info(__VA_ARGS__)
 #define Debug_Warn(...)	    ::Cobble::Log::GetClientLogger()->warn(__VA_ARGS__)
 #define Debug_Error(...)    ::Cobble::Log::GetClientLogger()->error(__VA_ARGS__)
-
-

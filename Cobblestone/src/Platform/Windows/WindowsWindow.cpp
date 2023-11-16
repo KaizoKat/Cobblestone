@@ -4,7 +4,7 @@
 #include "Cobble/Events/ApplicationEvent.h"
 #include "Cobble/Events/KeyEvent.h"
 #include "Cobble/Events/MouseEvent.h"
-#include "Platform\OpenGL\i_ImGuiGlfw.h"
+#include "Platform/ImGui/OpenGL_glfw/imgui_impl_glfw.h"
 
 namespace Cobble {
 

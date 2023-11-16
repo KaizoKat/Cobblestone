@@ -6,8 +6,8 @@
 #include "Cobble\Main\Application.h"
 #include "Cobble\Main\Input.h"
 
-#include "Platform\OpenGL\i_ImGuiGlfw.h"
-#include "Platform\OpenGL\i_imGuiOpenGL3.h"
+#include "Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h"
+#include "Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h"
 #include "Platform\Windows\WindowsWindow.h"
 
 struct GLFWwindow;
@@ -165,7 +165,7 @@ namespace Cobble
 			ImGui::Text(mousePos.str().c_str());
 
 			std::stringstream lastKey;
-			lastKey << "Last Key: " << ;
+			lastKey << "Last Key: ";
 			ImGui::Text(mousePos.str().c_str());
 
 			ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

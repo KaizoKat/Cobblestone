@@ -7,14 +7,20 @@
     <Filter Include="Cobble\Events">
       <UniqueIdentifier>{9095D72B-FC55-5362-C590-9CDF3110983E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cobble\Utils">
-      <UniqueIdentifier>{8C659B9D-78C8-2A42-214E-63F80D90F6C4}</UniqueIdentifier>
+    <Filter Include="Cobble\Main">
+      <UniqueIdentifier>{20F2C104-8CA7-3AFA-159C-34D1815031FE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Cobble\imGuiLayer">
       <UniqueIdentifier>{73CAD199-DFE0-CF2F-2858-5B5194ADA0B7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\ImGui">
+      <UniqueIdentifier>{D473D893-C041-CC99-A9D5-3CC09542A8FE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platform\ImGui\OpenGL_glfw">
+      <UniqueIdentifier>{77C7BCF7-63D7-68C8-CC90-CDE6B8BF5761}</UniqueIdentifier>
     </Filter>
     <Filter Include="Platform\OpenGL">
       <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
@@ -38,37 +44,40 @@
       <Filter>Cobble\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Application.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Core.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\EntryPoint.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h">
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Input.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\KeyCodes.h">
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Layer.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\LayerStack.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Log.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h">
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\Main\Window.h">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClInclude>
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h">
       <Filter>Cobble\imGuiLayer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\i_ImGuiGlfw.h">
-      <Filter>Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\i_imGuiOpenGL3.h">
-      <Filter>Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>Platform\Windows</Filter>
@@ -77,31 +86,25 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\cpch.h" />
-    <ClInclude Include="src\Cobble\Main\KeyCodes.h" />
-    <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h" />
-    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_load_opengl3.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cobble\Main\Application.cpp">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\Main\Layer.cpp">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\Main\LayerStack.cpp">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\Main\Log.cpp">
-      <Filter>Cobble\Utils</Filter>
+      <Filter>Cobble\Main</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp">
       <Filter>Cobble\imGuiLayer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\i_ImGuiGlfw.cpp">
-      <Filter>Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\i_imGuiOpenGL3.cpp">
-      <Filter>Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>Platform\Windows</Filter>
@@ -110,5 +113,7 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\cpch.cpp" />
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.cpp" />
   </ItemGroup>
 </Project>

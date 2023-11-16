@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;GLFW_INCLUDE_NONE;CBB_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\imGui;external\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\glad\include;external\imGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -104,7 +104,7 @@
       <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;GLFW_INCLUDE_NONE;CBB_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\imGui;external\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\glad\include;external\imGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -132,7 +132,7 @@
       <PrecompiledHeaderFile>cpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>CBB_PLATFORM_WINDOWS;CBB_BUILD_DLL;GLFW_INCLUDE_NONE;CBB_DISTRIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\imGui;external\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;external\spdlog\include;external\GLFW\include;external\glad\include;external\imGui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -161,9 +161,9 @@
     <ClInclude Include="src\Cobble\Events\KeyEvent.h" />
     <ClInclude Include="src\Cobble\Events\MouseEvent.h" />
     <ClInclude Include="src\Cobble\Main\Application.h" />
-    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h" />
     <ClInclude Include="src\Cobble\Main\Core.h" />
     <ClInclude Include="src\Cobble\Main\EntryPoint.h" />
+    <ClInclude Include="src\Cobble\Main\GamepadKeycodes.h" />
     <ClInclude Include="src\Cobble\Main\Input.h" />
     <ClInclude Include="src\Cobble\Main\KeyCodes.h" />
     <ClInclude Include="src\Cobble\Main\Layer.h" />
@@ -172,8 +172,9 @@
     <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h" />
     <ClInclude Include="src\Cobble\Main\Window.h" />
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h" />
-    <ClInclude Include="src\Platform\OpenGL\i_ImGuiGlfw.h" />
-    <ClInclude Include="src\Platform\OpenGL\i_imGuiOpenGL3.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h" />
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_load_opengl3.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\cpch.h" />
@@ -184,8 +185,8 @@
     <ClCompile Include="src\Cobble\Main\LayerStack.cpp" />
     <ClCompile Include="src\Cobble\Main\Log.cpp" />
     <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\i_ImGuiGlfw.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\i_imGuiOpenGL3.cpp" />
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.cpp" />
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\cpch.cpp">

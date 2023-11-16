@@ -39,16 +39,16 @@ project "Cobblestone"
 		"%{prj.name}/src",
 		"%{prj.name}/external/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.imGui}",
-		"%{IncludeDir.glad}"
+		"%{IncludeDir.glad}",
+		"%{IncludeDir.imGui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
+		"opengl32.lib",
 		"glad",
-		"imGui",
-		"opengl32.lib"
+		"imGui"
 	}
 
 	filter "system:windows"

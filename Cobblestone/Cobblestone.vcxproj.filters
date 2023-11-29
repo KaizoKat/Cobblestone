@@ -22,9 +22,6 @@
     <Filter Include="Platform\ImGui\OpenGL_glfw">
       <UniqueIdentifier>{77C7BCF7-63D7-68C8-CC90-CDE6B8BF5761}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Platform\OpenGL">
-      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -79,6 +76,15 @@
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h">
       <Filter>Cobble\imGuiLayer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h">
+      <Filter>Platform\ImGui\OpenGL_glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h">
+      <Filter>Platform\ImGui\OpenGL_glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_load_opengl3.h">
+      <Filter>Platform\ImGui\OpenGL_glfw</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -86,9 +92,6 @@
       <Filter>Platform\Windows</Filter>
     </ClInclude>
     <ClInclude Include="src\cpch.h" />
-    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_load_opengl3.h" />
-    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h" />
-    <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Cobble\Main\Application.cpp">
@@ -106,6 +109,12 @@
     <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp">
       <Filter>Cobble\imGuiLayer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.cpp">
+      <Filter>Platform\ImGui\OpenGL_glfw</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.cpp">
+      <Filter>Platform\ImGui\OpenGL_glfw</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
@@ -113,7 +122,5 @@
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\cpch.cpp" />
-    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.cpp" />
-    <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.cpp" />
   </ItemGroup>
 </Project>

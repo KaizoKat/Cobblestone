@@ -10,6 +10,8 @@
 #include "Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h"
 #include "Platform\Windows\WindowsWindow.h"
 
+#include "imGuiThemes.h"
+
 struct GLFWwindow;
 
 namespace Cobble
@@ -18,11 +20,13 @@ namespace Cobble
 
 	ImGuiLayer::~ImGuiLayer()  {}
 
+	int itt = 7;
+
 	void ImGuiLayer::OnAttach()
 	{
         IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
-		ImGui::StyleColorsClassic();
+		SwitchStyle();
 
         ImGuiIO& io = ImGui::GetIO();
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
@@ -74,7 +78,6 @@ namespace Cobble
 		static float bgColor[4] = { 102.0f / 255.0f,124.0f / 255.0f,154.0f / 255.0f,1 };
 		static int wait = 0;
 		static int prevFPSV;
-		static int itt;
 		static double oldTime = 0.0;
 		__int64 counter;
 		__int64 frequency;
@@ -128,22 +131,11 @@ namespace Cobble
 
 			if (ImGui::Button("Shuffle Color Theme"))
 			{
-				if (itt > 1) itt = 0;
+				if (itt == 7) itt = 0;
 				else itt++;
 			}
 
-			switch (itt)
-			{
-			case 0:
-				ImGui::StyleColorsClassic();
-				break;
-			case 1:
-				ImGui::StyleColorsDark();
-				break;
-			case 2:
-				ImGui::StyleColorsLight();
-				break;
-			}
+			SwitchStyle();
 
 			ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		}
@@ -164,11 +156,38 @@ namespace Cobble
 			mousePos << "Mouse Pos: " << Input::GetMouseX() << ", " << Input::GetMouseY();
 			ImGui::Text(mousePos.str().c_str());
 
-			std::stringstream lastKey;
-			lastKey << "Last Key: ";
-			ImGui::Text(mousePos.str().c_str());
-
 			ImGui::End();//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		}
+	}
+
+	void ImGuiLayer::SwitchStyle()
+	{
+		switch (itt)
+		{
+		case 0:
+			Cobble::Themes::DefaultDarkTheme();
+			break;
+		case 1:
+			Cobble::Themes::DefaultLightTheme();
+			break;
+		case 2:
+			Cobble::Themes::ClassicTheme();
+			break;
+		case 3:
+			Cobble::Themes::CinderTheme();
+			break;
+		case 4:
+			Cobble::Themes::EnemyMouseTheme();
+			break;
+		case 5:
+			Cobble::Themes::LeadSynthTheme();
+			break;
+		case 6:
+			Cobble::Themes::DougblinksThemeDark();
+			break;
+		case 7:
+			Cobble::Themes::DougblinksThemeLight();
+			break;
 		}
 	}
 }

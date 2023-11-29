@@ -171,6 +171,7 @@
     <ClInclude Include="src\Cobble\Main\Log.h" />
     <ClInclude Include="src\Cobble\Main\MouseButtonCodes.h" />
     <ClInclude Include="src\Cobble\Main\Window.h" />
+    <ClInclude Include="src\Cobble\imGuiLayer\imGuiThemes.h" />
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h" />
     <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.h" />
     <ClInclude Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="src\Cobble\Main\Layer.cpp" />
     <ClCompile Include="src\Cobble\Main\LayerStack.cpp" />
     <ClCompile Include="src\Cobble\Main\Log.cpp" />
+    <ClCompile Include="src\Cobble\imGuiLayer\imGuiThemes.cpp" />
     <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp" />
     <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_glfw.cpp" />
     <ClCompile Include="src\Platform\ImGui\OpenGL_glfw\imgui_impl_opengl3.cpp" />

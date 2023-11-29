@@ -73,6 +73,9 @@
     <ClInclude Include="src\Cobble\Main\Window.h">
       <Filter>Cobble\Main</Filter>
     </ClInclude>
+    <ClInclude Include="src\Cobble\imGuiLayer\imGuiThemes.h">
+      <Filter>Cobble\imGuiLayer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Cobble\imGuiLayer\imGuiLayer.h">
       <Filter>Cobble\imGuiLayer</Filter>
     </ClInclude>
@@ -105,6 +108,9 @@
     </ClCompile>
     <ClCompile Include="src\Cobble\Main\Log.cpp">
       <Filter>Cobble\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Cobble\imGuiLayer\imGuiThemes.cpp">
+      <Filter>Cobble\imGuiLayer</Filter>
     </ClCompile>
     <ClCompile Include="src\Cobble\imGuiLayer\imGuiLayer.cpp">
       <Filter>Cobble\imGuiLayer</Filter>

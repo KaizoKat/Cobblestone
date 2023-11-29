@@ -22,5 +22,6 @@ namespace Cobble
 	private:
 		float m_Time = 0.0f;
 		bool b_Info;
+		void SwitchStyle();
 	};
 }
